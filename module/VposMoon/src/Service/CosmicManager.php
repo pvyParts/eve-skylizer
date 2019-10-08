@@ -32,6 +32,9 @@ class CosmicManager
     const EVE_GROUP_CITADEL = 1657;
     const EVE_GROUP_ENGINEERING_COMPLEX = 1404;
     const EVE_GROUP_REFINERY = 1406;
+    const EVE_GROUP_UPWELL_JUMP_GATE = 1408;
+    const EVE_GROUP_UPWELL_CYNO_JAMMER = 2016;
+    const EVE_GROUP_UPWELL_CYNO_BEACON = 2017;
     const EVE_GROUP_COSMICANOMALY = 885;
     const EVE_GROUP_COSMICSIGNATURE = 502;
     const EVE_GROUP_FORCEFIELD = 411;
@@ -126,10 +129,10 @@ class CosmicManager
 
         $bla = $this->evaluateStructureScan();
         
-        //$this->logger->debug('### DATA Collector: '.print_r($this->data_collector, true));
-        //$this->logger->debug('### Structure Collector: '.print_r($this->structure_collector, true));
-        //$this->logger->debug('### Elems Collector: '.print_r($this->structure_elem_collector, true));
-        //$this->logger->debug('### Celestials Collector: '.print_r($this->celestial_collector, true));
+        $this->logger->debug('### DATA Collector: '.print_r($this->data_collector, true));
+        $this->logger->debug('### Structure Collector: '.print_r($this->structure_collector, true));
+        $this->logger->debug('### Elems Collector: '.print_r($this->structure_elem_collector, true));
+        $this->logger->debug('### Celestials Collector: '.print_r($this->celestial_collector, true));
 
         // persist scan
         if ($this->structure_collector && count($this->structure_collector)) {
@@ -803,6 +806,9 @@ class CosmicManager
             || $eve_groupID == self::EVE_GROUP_CITADEL
             || $eve_groupID == self::EVE_GROUP_ENGINEERING_COMPLEX
             || $eve_groupID == self::EVE_GROUP_REFINERY
+            || $eve_groupID == self::EVE_GROUP_UPWELL_JUMP_GATE
+            || $eve_groupID == self::EVE_GROUP_UPWELL_CYNO_JAMMER
+            || $eve_groupID == self::EVE_GROUP_UPWELL_CYNO_BEACON
         ) {
             return (true);
         }
